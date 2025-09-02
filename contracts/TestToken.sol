@@ -10,18 +10,21 @@ contract TestToken is ERC20, Ownable2Step, ERC20Capped {
     
     constructor()
         ERC20("MyTestToken", "MTTK")
-        ERC20Capped(1_000_001 * 10 ** decimals()) 
+        ERC20Capped(1_000_001 * 10 ** decimals())
         Ownable(msg.sender)
     {
         _mint(msg.sender, 1_000_001 * 10 ** decimals());
     }
        function _update(address from, address to, uint256 value) internal
         override(ERC20, ERC20Capped)
-    {
+    {        
+        //can only override virtual functions
+        if(from != address(0)){
+            require(balanceOf(from) >= 1000, "balance less than 1000");
+        }
         super._update(from, to, value);
     }
 
-    //overide transfer func check current balance of sender >=1000
     //security testing
 
     function mint(address to, uint256 amount) public onlyOwner {
