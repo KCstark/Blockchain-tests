@@ -21,6 +21,9 @@ contract TestToken is ERC20, Ownable2Step, ERC20Capped {
         super._update(from, to, value);
     }
 
+    //overide transfer func check current balance of sender >=1000
+    //security testing
+
     function mint(address to, uint256 amount) public onlyOwner {
         _mint(to, amount);
     }
