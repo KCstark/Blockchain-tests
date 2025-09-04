@@ -2,11 +2,12 @@
 pragma solidity ^0.8.30;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol";
 import "@openzeppelin/contracts/access/Ownable2Step.sol";
 
 //deploying test token 
-contract TestToken is ERC20, Ownable2Step, ERC20Capped {
+contract TestToken is ERC20, Ownable2Step, ERC20Capped,ReentrancyGuard {
     
     constructor()
         ERC20("MyTestToken", "MTTK")
@@ -28,7 +29,7 @@ contract TestToken is ERC20, Ownable2Step, ERC20Capped {
 
     //security testing
 
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public onlyOwner nonReentrant  {
         _mint(to, amount);
     }
 

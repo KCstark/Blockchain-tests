@@ -146,6 +146,11 @@
 				"type": "error"
 			},
 			{
+				"inputs": [],
+				"name": "ReentrancyGuardReentrantCall",
+				"type": "error"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -576,6 +581,11 @@
 					{
 						"details": "The caller account is not authorized to perform an operation."
 					}
+				],
+				"ReentrancyGuardReentrantCall()": [
+					{
+						"details": "Unauthorized reentrant call."
+					}
 				]
 			},
 			"events": {
@@ -722,12 +732,20 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"contracts/TestToken.sol": {
-			"keccak256": "0xf03100c9f799098b1cf7ce6a53fa2e43cbe70fcf8b09dbe399a3d0aebb54d6c8",
+		"@openzeppelin/contracts/utils/ReentrancyGuard.sol": {
+			"keccak256": "0x11a5a79827df29e915a12740caf62fe21ebe27c08c9ae3e09abe9ee3ba3866d3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4ab1be425d380d2c759c8d34938b7bbf7d27c3f30d4761e04749c65f4fc41d61",
-				"dweb:/ipfs/Qmcjriy5LHmtaQXKNZRLrFVbiR37CJuCC6W2XzUWgxuKV5"
+				"bzz-raw://3cf0c69ab827e3251db9ee6a50647d62c90ba580a4d7bbff21f2bea39e7b2f4a",
+				"dweb:/ipfs/QmZiKwtKU1SBX4RGfQtY7PZfiapbbu6SZ9vizGQD9UHjRA"
+			]
+		},
+		"contracts/TestToken.sol": {
+			"keccak256": "0x9534b4e258b7c9a483d97ad119b7fde4a7d55eb07a74e3c72420652723d8b11a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9dee312504768c4545cfcba608bd2cd226a5ade61c232762b3fec80377ec37cf",
+				"dweb:/ipfs/QmZwYX4teMcFJCVWVP4qzp63ucpEZyBxpSibcYNBQ7n4xb"
 			]
 		}
 	},
