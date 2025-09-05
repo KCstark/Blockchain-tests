@@ -27,7 +27,7 @@ contract TestToken is ERC20, Ownable2Step, ERC20Capped,ReentrancyGuard {
         super._update(from, to, value);
     }
 
-    //security testing
+    //security testing done
 
     function mint(address to, uint256 amount) public onlyOwner nonReentrant  {
         _mint(to, amount);
