@@ -6,7 +6,28 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "tokenName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "tokenSymbol",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cap",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "initialAmount",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -741,11 +762,11 @@
 			]
 		},
 		"contracts/TestToken.sol": {
-			"keccak256": "0x255625e1e48a1564f4356bb7b856d0e13e7917ce2deb06500c0163ef36ca8251",
+			"keccak256": "0xc149cb9b2e3a1762ef5060987663810d8e0c55cd980a77e765db1664ed25b74c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://97135556ddea83da87789742d3ef6a2dada163b3812fa09c5faa9763cde7b4b2",
-				"dweb:/ipfs/QmYJEP8eKWgTs4hiqQyk3VeeG4kbs4e9zYr4cXjyEe3MA3"
+				"bzz-raw://720c6975671ba7d739c215183a2120f0b9185ef72b67e734563f35eeabc3c605",
+				"dweb:/ipfs/QmTcizYwN8Tkivknh3NsdGFWAkyNk7SHaRrJT7QPaj37EK"
 			]
 		}
 	},

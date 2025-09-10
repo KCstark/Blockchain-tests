@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable2Step.sol";
 //deploying test token 
 contract TestToken is ERC20, Ownable2Step, ERC20Capped,ReentrancyGuard {
     
-    constructor(String memory tokenName, String memory tokenSymbol, uint256 cap,uint256 initialAmount )
+    constructor(string memory tokenName, string memory tokenSymbol, uint256 cap,uint256 initialAmount )
         // ERC20("MyTestToken", "MTTK")
         // ERC20Capped(1_000_001 * 10 ** decimals())
         // Ownable(msg.sender)
