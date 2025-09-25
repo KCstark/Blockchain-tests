@@ -29,11 +29,11 @@ contract TestToken is
         _mint(owner, initialAmount * 10 ** decimals());
     }
 
-    uint immutable ver=1.0;
+    string public constant VERSION="1.0";
 
     //gives the version of contract
-    function version() public pure returns(uint){
-        return ver;
+    function version() public pure returns(string memory){
+        return VERSION;
     }
 
     //overriding _update to enforce cap

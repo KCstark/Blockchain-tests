@@ -258,6 +258,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "VERSION",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "acceptOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -563,9 +576,9 @@
 				"name": "version",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
 				"stateMutability": "pure",
@@ -826,11 +839,11 @@
 			]
 		},
 		"contracts/Proxy deployment contracts/TestProxyImpl.sol": {
-			"keccak256": "0xe03b1eafab1cb31107cfeed45583339905ad23c407b8a771f1561c5e988110de",
+			"keccak256": "0x4d1c3c4b1e644c01e8e6473877a8eb0bbf02197b16d60cf4e1d2e9204638ae0d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1a957311e4f3b7d15849964c705807bde878cfbb9c9723515f6a76c1b1c13ea8",
-				"dweb:/ipfs/QmPGjrR2FWNKU2sDJe6jFEUc5bTbHC2YZc6FDXuqmwG2hY"
+				"bzz-raw://8b288d1f0916112de0ad7717336b3a692868007581287e1ddfd99987f7ec7d4a",
+				"dweb:/ipfs/QmfYChRa8CbyBbKKKaKzxyXbVFPJMX4w1fwZDiBSpTkMA5"
 			]
 		}
 	},
