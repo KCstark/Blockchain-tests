@@ -189,7 +189,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/first_test.sol": "first_test"
+			"contracts/my_contracts/first_test.sol": "first_test"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -203,7 +203,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/first_test.sol": {
+		"contracts/my_contracts/first_test.sol": {
 			"keccak256": "0xe4cfa0bd535874580182459f08ad80ffebadccbccc9762b9d366f0e7bad88ca8",
 			"license": "MIT",
 			"urls": [
