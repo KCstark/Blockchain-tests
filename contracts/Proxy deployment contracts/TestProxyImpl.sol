@@ -29,7 +29,7 @@ contract TestToken is
         _mint(owner, initialAmount * 10 ** decimals());
     }
 
-    string public constant VERSION="1.0";
+    string public constant VERSION="2.0";
 
     //gives the version of contract
     function version() public pure returns(string memory){
