@@ -18,5 +18,6 @@ contract Escrow{
 
     function deposit(uint amount) public payable {
         require(msg.value == amount, "Amount must match the value sent");
+        
     }
 }
