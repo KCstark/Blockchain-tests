@@ -1,23 +1,50 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.30;
 
-contract Escrow{
-    address owner;
+    contract Escrow{
+        address owner;
+        mapping (uint256 => EscrowTxn) public escrowTxn;
+        uint256 public escrowTxnCount;
 
-    constructor () {
-        owner=msg.sender;
-    }
+        event EscrowTxnCreated(uint256 id, address depositer, address recipient, uint256 amount, string message);
+        event EscrowTxnApproved(uint256 id);
+        event EscrowTxnRejected(uint256 id);
 
-    struct User {
-            address userAddress;
-            string name;
-            uint256 balance;
-            //list of trade
-            string[] trade;
-    }
+        constructor () {
+            owner=msg.sender;
+        }
 
-    function deposit(uint amount) public payable {
-        require(msg.value == amount, "Amount must match the value sent");
-        
+        enum Status{
+            Pending,
+            Approved,
+            Rejected
+        }
+
+        struct EscrowTxn {
+                //id, depositer add, amount blocked,recepient, status
+                uint256 id;
+                address payable depositer;
+                address payable recipient;
+                uint256 blockedAmount;
+                uint256 timeStamp;
+                uint256 completeTimeStamp;
+                Status status;
+        }
+
+        //deposit by buyer
+        function deposit(address payable  seller) public payable returns (uint256)  {
+            require(msg.value>0,"Invalid amount, must be greater than 0");
+            require(seller!=address(0),"Invalid address");
+            uint256 id = escrowTxnCount++;
+            EscrowTxn storage currEsc=escrowTxn[id];
+            currEsc.id = id;
+            currEsc.depositer = payable (msg.sender);
+            currEsc.recipient = seller;
+            currEsc.blockedAmount = msg.value;
+            currEsc.timeStamp = block.timestamp;
+            currEsc.status = Status.Pending;
+            currEsc.completeTimeStamp = 0;
+            emit EscrowTxnCreated(id, msg.sender,seller , msg.value, "Sending escrow id please keep it safe");
+            return id;
+        }
     }
-}
