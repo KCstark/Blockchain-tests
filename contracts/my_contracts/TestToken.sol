@@ -6,7 +6,6 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol";
 import "@openzeppelin/contracts/access/Ownable2Step.sol";
 
-//deploying test token 
 contract TestToken is ERC20, Ownable2Step, ERC20Capped,ReentrancyGuard {
     
     constructor(string memory tokenName, string memory tokenSymbol, uint256 cap,uint256 initialAmount )
