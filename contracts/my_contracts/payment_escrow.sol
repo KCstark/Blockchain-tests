@@ -31,7 +31,7 @@ pragma solidity ^0.8.30;
                 Status status;
         }
 
-        //deposit by buyer
+        //deposit by buyerr
         function deposit(address payable  seller) public payable returns (uint256)  {
             require(msg.value>0,"Invalid amount, must be greater than 0");
             require(seller!=address(0),"Invalid address");
@@ -47,4 +47,33 @@ pragma solidity ^0.8.30;
             emit EscrowTxnCreated(id, msg.sender,seller , msg.value, "Sending escrow id please keep it safe");
             return id;
         }
+
+        //approve escrow -> pay seller
+         function approveEscrow(uint256 id) public {
+            EscrowTxn storage currEsc=escrowTxn[id];
+            require(currEsc.status==Status.Pending, "This transaction has already processed");
+            require(msg.sender==currEsc.depositer, "You are not the depositor, only depositer can approve");
+            currEsc.status = Status.Approved;
+            currEsc.completeTimeStamp = block.timestamp;
+            // payable(currEsc.recipient).transfer(currEsc.blockedAmount);// transfer is deprecated so not using it
+            //.call{} is a low level function so need to implement reentrancy safety for this later :)
+            //see notes for more details
+            (bool success,)=currEsc.recipient.call{value: currEsc.blockedAmount}("");
+            require(success, "Transaction Failed, failed to send Ether!");
+            emit EscrowTxnApproved(id);
+         }
+
+        //cancle escrow -> refund to depositor
+        function cancelEscrow(uint256 id) public {
+            EscrowTxn storage currEsc=escrowTxn[id];
+            require(currEsc.depositer==msg.sender,"You are not the depositor, only depositer can cancel");
+            require(currEsc.status==Status.Pending,"This transaction has already processed");
+            currEsc.status=Status.Rejected;
+            currEsc.completeTimeStamp=block.timestamp;
+             //.call{} is a low level function so need to implement reentrancy safety for this later :)
+            (bool success,)=currEsc.depositer.call{value: currEsc.blockedAmount}("");
+            require(success, "Transaction Failed, failed to refund Ether!");
+            emit EscrowTxnRejected(id);
+        }
+        
     }

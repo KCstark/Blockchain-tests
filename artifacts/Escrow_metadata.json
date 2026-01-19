@@ -76,6 +76,32 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "approveEscrow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelEscrow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address payable",
 						"name": "seller",
 						"type": "address"
@@ -183,11 +209,11 @@
 	},
 	"sources": {
 		"contracts/my_contracts/payment_escrow.sol": {
-			"keccak256": "0x240c7619c3fd087b40d0dc1349fd0b2ef8277dc153c5a055ae9dabc8c25b80e5",
+			"keccak256": "0x3e235486a50dd436dd71d3efb5a8f8189514e72355376443761481783fce7397",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6088694bdc2a7026b39583691551c81993aa3bf0b7ad1bd42ede73ba87d456e0",
-				"dweb:/ipfs/Qmbs1wGV6gNcf6QKmC5pwVHngxLU9UkyrG7p5Mw6RJC1yy"
+				"bzz-raw://b978af2adb14c3f973b1d8ec5997b89465fd60f877503e3e6c1ac9787b139488",
+				"dweb:/ipfs/QmVjtQbNeoosKgfR5rsFgQsJ21YFx2UZDkEKpDaS4RK1zX"
 			]
 		}
 	},
